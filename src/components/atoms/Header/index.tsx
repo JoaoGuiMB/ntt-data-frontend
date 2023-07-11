@@ -1,9 +1,5 @@
 import { ShellBar, ShellBarPropTypes } from "@ui5/webcomponents-react";
 
-interface HeaderProps {
-  props: ShellBarPropTypes;
-}
-
-export default function Header({ props }: HeaderProps) {
+export default function Header(props: ShellBarPropTypes) {
   return <ShellBar {...props} />;
 }

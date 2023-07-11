@@ -1,16 +1,12 @@
-import Header from "./components/atoms/Header";
+import Layout from "./components/templates/Layout";
+import AppDescription from "./components/molecules/AppDescription";
 
 function App() {
-  const APP_NAME = "NTTMovies";
-
   return (
     <>
-      <Header
-        props={{
-          logo: <img src="/nttMoviesLogo.png" alt={`${APP_NAME}'s logo`} />,
-          primaryTitle: APP_NAME,
-        }}
-      />
+      <Layout>
+        <AppDescription />
+      </Layout>
     </>
   );
 }
