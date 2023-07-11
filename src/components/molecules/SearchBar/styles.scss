@@ -1,0 +1,23 @@
+.test {
+    width: 100%;
+    margin-top: 16px;
+    @media(min-width: $small) {
+
+        width: 40%;
+    }
+}
+
+#searchMovieInput {
+    @media(min-width: $small) {
+        width: 80%;
+        margin-right: 20px;
+    }
+}
+
+
+.button {
+    @media(min-width: $small) {
+        width: 30%;
+        margin-right: 20px;
+    }
+}
