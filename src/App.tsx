@@ -1,11 +1,11 @@
 import Layout from "./components/templates/Layout";
-import AppDescription from "./components/molecules/AppDescription";
+import PageContent from "./components/templates/PageContent";
 
 function App() {
   return (
     <>
       <Layout>
-        <AppDescription />
+        <PageContent />
       </Layout>
     </>
   );
