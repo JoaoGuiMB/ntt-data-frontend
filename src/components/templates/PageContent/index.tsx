@@ -1,5 +1,5 @@
 import { FlexBox } from "@ui5/webcomponents-react";
-import AppDescription from "../../molecules/AppDescription";
+import SearchMovie from "../../organisms/SearchMovie";
 
 export default function PageContent() {
   return (
@@ -9,7 +9,7 @@ export default function PageContent() {
         justifyContent="Center"
         alignItems="Center"
       >
-        <AppDescription />
+        <SearchMovie />
       </FlexBox>
     </>
   );
