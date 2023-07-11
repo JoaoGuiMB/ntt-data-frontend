@@ -1,0 +1,27 @@
+.movieInfoContainer {
+ margin-top: 10px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ @media (min-width: $small) {
+    width: 50%;
+   } 
+}
+
+#movieDescription {
+ margin-top: 20px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ padding: 0 20px;
+}
+
+#movieInformationContainer {
+ margin-top: 20px;
+ align-self: self-start;
+ margin-left: 20px;
+ display: flex;
+ flex-direction: column;
+}
