@@ -1,5 +1,8 @@
-import { FlexBox, Title, Text, Button } from "@ui5/webcomponents-react";
+import { Title, Text, Button } from "@ui5/webcomponents-react";
 import "./styles.scss";
+import BoldText from "../../atoms/BoldText";
+import StarRatings from "react-star-ratings";
+
 export default function MovieInfo() {
   return (
     <div className="movieInfoContainer">
@@ -15,16 +18,24 @@ export default function MovieInfo() {
         </Text>
       </div>
       <div id="movieInformationContainer">
-        <Text>
-          Actors: <Text>Will Smith</Text>
+        <Text className="textMargin">
+          <BoldText text="Actors: " />
+          <Text>Will Smith</Text>
         </Text>
-        <Text>
+        <Text className="textMargin">
+          <BoldText text="Duration: " />
           Duration: <Text>Will Smith</Text>
         </Text>
-        <Text>
-          Rating: <Text>Will Smith</Text>
+        <Text className="textMargin">
+          <BoldText text="Rating: " />{" "}
+          <StarRatings
+            starDimension="20px"
+            numberOfStars={5}
+            rating={3.3}
+            starRatedColor="#FFD700"
+          />
         </Text>
-        <Button>Favorite</Button>
+        <Button className="textMargin">Favorite</Button>
       </div>
     </div>
   );
