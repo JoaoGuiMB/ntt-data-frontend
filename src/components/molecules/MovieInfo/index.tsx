@@ -1,4 +1,4 @@
-import { Title, Text, Button, Icon } from "@ui5/webcomponents-react";
+import { Title, Text, Button } from "@ui5/webcomponents-react";
 import "./styles.scss";
 import BoldText from "../../atoms/BoldText";
 import StarRatings from "react-star-ratings";
@@ -6,7 +6,7 @@ import { MovieDTO } from "../../../types/movie";
 import {
   addMovieToFavorites,
   isMovieFavorite,
-} from "../../../redux/slices/movieSearchSlice";
+} from "../../../redux/slices/favoriteMoviesSlice";
 import {
   useMovieDispatch,
   useMovieSelector,
