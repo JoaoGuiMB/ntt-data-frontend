@@ -3,7 +3,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { MovieDTO } from "../../types/movie";
 
-const baseUrl = import.meta.env.VITE_MOVIE_API_URL || "http://localhost:3000";
+const baseUrl = process.env.VITE_MOVIE_API_URL || "http://localhost:3000";
 
 export const movieApi = createApi({
   reducerPath: "movieApi",
