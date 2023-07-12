@@ -2,12 +2,13 @@ import { FlexBox, Input, Button } from "@ui5/webcomponents-react";
 import "./styles.scss";
 import { useState } from "react";
 
-import { useDispatch } from "react-redux";
+import { useMovieDispatch } from "../../../redux/hooks/useMovies";
 import { searchForMovie } from "../../../redux/slices/movieSearchSlice";
+import { movieApi } from "../../../redux/slices/movieApi";
 
 export default function SearchBar() {
   const [searchMovieInput, setSearchMovieInput] = useState<string>("");
-  const dispatch = useDispatch();
+  const dispatch = useMovieDispatch();
 
   const handleSearchMovie = () => {
     dispatch(
@@ -15,6 +16,12 @@ export default function SearchBar() {
         currentMovie: searchMovieInput,
       })
     );
+  };
+
+  const resetState = () => {
+    dispatch(movieApi.util.resetApiState());
+    dispatch(searchForMovie({ currentMovie: "" }));
+    setSearchMovieInput("");
   };
 
   return (
@@ -25,10 +32,16 @@ export default function SearchBar() {
         value={searchMovieInput}
         onInput={(e) => setSearchMovieInput(e.target.value || "")}
       />
-      <Button className="button" onClick={handleSearchMovie}>
+      <Button
+        className="button"
+        onClick={handleSearchMovie}
+        disabled={!searchMovieInput.length}
+      >
         Search
       </Button>
-      <Button className="button">Reset</Button>
+      <Button className="button" onClick={resetState}>
+        Reset
+      </Button>
     </FlexBox>
   );
 }
