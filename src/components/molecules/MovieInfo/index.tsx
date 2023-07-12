@@ -9,7 +9,7 @@ interface MovieInfoProps {
 }
 
 export default function MovieInfo({ movie }: MovieInfoProps) {
-  const { title, runtime, plot } = movie;
+  const { title, runtime, plot, imdbRating, actors, awards, year } = movie;
 
   return (
     <div className="movieInfoContainer">
@@ -20,18 +20,26 @@ export default function MovieInfo({ movie }: MovieInfoProps) {
       <div id="movieInformationContainer">
         <Text className="textMargin">
           <BoldText text="Actors: " />
-          <Text>Will Smith</Text>
+          <Text>{actors}</Text>
         </Text>
         <Text className="textMargin">
           <BoldText text="Duration: " />
-          Duration: <Text>{runtime}</Text>
+          <Text>{runtime}</Text>
+        </Text>
+        <Text className="textMargin">
+          <BoldText text="Year: " />
+          <Text>{year}</Text>
+        </Text>
+        <Text className="textMargin">
+          <BoldText text="Awards: " />
+          <Text>{awards}</Text>
         </Text>
         <Text className="textMargin">
           <BoldText text="Rating: " />{" "}
           <StarRatings
             starDimension="20px"
             numberOfStars={5}
-            rating={3.3}
+            rating={+imdbRating / 2}
             starRatedColor="#FFD700"
           />
         </Text>
