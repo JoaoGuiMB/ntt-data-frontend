@@ -1,9 +1,13 @@
 import "./styles.scss";
 
-export default function MoviePoster() {
+interface MoviePosterProps {
+  imgPath: string;
+}
+
+export default function MoviePoster({ imgPath }: MoviePosterProps) {
   return (
     <div className="moviePosterContainer">
-      <img src="https://github.com/joaoguimb.png" alt="Movie Poster" />
+      <img src={imgPath} alt="Movie Poster" />
     </div>
   );
 }
