@@ -4,19 +4,21 @@ import { useMovieSelector } from "../../../redux/hooks/useMovies";
 import { selectMovie } from "../../../redux/slices/movieSearchSlice";
 import { useSearchMovieQuery } from "../../../redux/slices/movieApi";
 import ClipLoader from "react-spinners/ClipLoader";
-import { Toast, ToastDomRef } from "@ui5/webcomponents-react";
+import { Text } from "@ui5/webcomponents-react";
 import "./styles.scss";
-import { useRef } from "react";
 
 export default function MovieContent() {
-  const toast = useRef<ToastDomRef>(null);
   const selectedMovie = useMovieSelector(selectMovie);
-  const { data, isError, isLoading } = useSearchMovieQuery(
+  const { data, isLoading, isError } = useSearchMovieQuery(
     selectedMovie.currentMovie
   );
 
   if (isError) {
-    toast?.current?.show();
+    return (
+      <div className="errorContainer">
+        <Text>Movie Not found!</Text>
+      </div>
+    );
   }
 
   return (
@@ -28,9 +30,7 @@ export default function MovieContent() {
         aria-label="Loading Spinner"
         data-testid="loader"
       />
-      <Toast ref={toast} placement="TopEnd">
-        Movie not found!
-      </Toast>
+
       {data && (
         <>
           <MovieInfo movie={data} />
