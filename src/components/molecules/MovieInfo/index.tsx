@@ -1,8 +1,16 @@
-import { Title, Text, Button } from "@ui5/webcomponents-react";
+import { Title, Text, Button, Icon } from "@ui5/webcomponents-react";
 import "./styles.scss";
 import BoldText from "../../atoms/BoldText";
 import StarRatings from "react-star-ratings";
 import { MovieDTO } from "../../../types/movie";
+import {
+  addMovieToFavorites,
+  isMovieFavorite,
+} from "../../../redux/slices/movieSearchSlice";
+import {
+  useMovieDispatch,
+  useMovieSelector,
+} from "../../../redux/hooks/useMovies";
 
 interface MovieInfoProps {
   movie: MovieDTO;
@@ -10,6 +18,12 @@ interface MovieInfoProps {
 
 export default function MovieInfo({ movie }: MovieInfoProps) {
   const { title, runtime, plot, imdbRating, actors, awards, year } = movie;
+  const dispatch = useMovieDispatch();
+  const isFavorite = useMovieSelector(isMovieFavorite(title));
+
+  const addToFavorites = () => {
+    dispatch(addMovieToFavorites(title));
+  };
 
   return (
     <div className="movieInfoContainer">
@@ -43,7 +57,15 @@ export default function MovieInfo({ movie }: MovieInfoProps) {
             starRatedColor="#FFD700"
           />
         </Text>
-        <Button className="textMargin">Favorite</Button>
+
+        <Button
+          className="textMargin"
+          onClick={addToFavorites}
+          icon={isFavorite ? "delete" : "add"}
+          iconEnd={true}
+        >
+          Favorite
+        </Button>
       </div>
     </div>
   );
